@@ -50,7 +50,7 @@ useEffect(() => {
 
       const formattedData = data.map((item : any) => ({
         _id: item._id,
-        mediaUrl: APIURL+`/uploads/${item.image}`,
+        mediaUrl:`${APIURL}/uploads/${item.image}`,
         type: item.imageType.startsWith("video") ? "video" : "image",
       }));
 
