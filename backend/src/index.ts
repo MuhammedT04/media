@@ -12,7 +12,11 @@ const app = express();
 
  
 momngoDbConnect()
-app.use(cors());
+app.use(cors({
+  origin:"*",
+  methods:["GET","POST","PUT","PATCH","DELETE"],
+  credentials:true
+}));
 
 app.use("/uploads", express.static(path.join(__dirname, "config/uploads")));
 
