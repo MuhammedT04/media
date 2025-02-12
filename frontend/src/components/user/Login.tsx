@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import { Button } from "../ui/button";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { APIURL } from "../../constants";
 
 const Login = () => {
   const [loginn, setLong] = useState({ email: "", password: "" });
@@ -16,8 +17,8 @@ const Login = () => {
 
   const submitValue = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    const res = await fetch("/api/auth/sign-In", {
+    
+    const res = await fetch(APIURL+"/api/auth/sign-In", {
       method: "POST",                   
       headers: {
         "Content-Type": "application/json",

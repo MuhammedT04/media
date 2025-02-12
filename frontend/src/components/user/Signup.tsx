@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { APIURL } from "../../constants";
 
 const Signup = () => {
   const [signUpData, setSignUpData] = useState({
@@ -26,7 +27,7 @@ const Signup = () => {
     }
 
     try {
-      const res = await fetch("/api/auth/sign-up", {
+      const res = await fetch(APIURL+"/api/auth/sign-up", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
