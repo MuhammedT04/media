@@ -5,11 +5,13 @@ import router from "./router/user";
 import cookieParser from "cookie-parser";
 import path from "path";  
 import cors from "cors";
+import { momngoDbConnect } from "./config/dbConnect";
 dotenv.config();
 
 const app = express();
+
  
-mongoose.connect("mongodb://127.0.0.1:27017/Media");
+momngoDbConnect()
 app.use(cors());
 
 app.use("/uploads", express.static(path.join(__dirname, "config/uploads")));
