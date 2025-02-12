@@ -27,9 +27,4 @@ The **Media Capture & Storage Web Application** is a full-stack solution that en
 - **Authentication:** JSON Web Token (JWT)  
 - **Deployment:** Render (backend), Vercel (frontend)  
 
-## 📂 Project Setup  
 
-### **1️⃣ Clone the Repository**  
-```bash
-git clone https://github.com/your-username/media-capture-app.git
-cd media-capture-app
