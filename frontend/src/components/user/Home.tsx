@@ -21,6 +21,7 @@ import {
 
 import { useEffect, useState } from "react";
 import { RootState } from "../../state/store";
+import { APIURL } from "../../constants";
 
 interface Media {
   _id: string;
@@ -42,14 +43,14 @@ const Home = () => {
   }
  
 useEffect(() => {
-  fetch("http://localhost:4000/api/auth/getMedia")
+  fetch(APIURL+"/api/auth/getMedia")
     .then((res) => res.json())
     .then((data) => {
       console.log("Fetched Data:", data);
 
       const formattedData = data.map((item : any) => ({
         _id: item._id,
-        mediaUrl: `http://localhost:5000/uploads/${item.image}`,
+        mediaUrl: APIURL+`/uploads/${item.image}`,
         type: item.imageType.startsWith("video") ? "video" : "image",
       }));
 
@@ -90,7 +91,7 @@ useEffect(() => {
     formData.append("user", JSON.stringify(currentUser?._id));
 
     try {
-      const res = await fetch("http://localhost:4000/api/auth/upload", {
+      const res = await fetch(APIURL+"/api/auth/upload", {
         method: "POST",
         body: formData,
       });
